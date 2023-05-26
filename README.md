@@ -39,3 +39,26 @@ enggak, custom made untuk BCA. itu pun selama BCA gak ngerubah bentuk e-settleme
 
 # Tolong buatin dong untuk bank x
 *kabur*
+
+# Saya mau tweaking sendiri, bisa gak ya?
+Bisa banget! Basically, ini node.js program yang pakai `pdfreader` untuk nge-parse file PDF kemudian nge convert jadi file csv. [Bisa dilihat dokumentasi dan guidenya disini](https://www.npmjs.com/package/pdfreader)
+
+di repo ini saya juga include `tester.js`. fungsinya dari `tester.js` ini adalah untuk nge-print koordinat semua grup tulisan di file txt untuk nanti bisa di cari polanya, debug, dan bikin pola sendiri.
+
+contohnya seperti ini
+```
+y(14.953) - x(2.627) 01/12 x(5.538)SALDO AWAL x(31.002)250,000,000.00
+y(15.578) - x(2.627) 01/12 x(5.538)KR OTOMATIS x(12.044)MID : 885888888888 x(19.043)0000 x(24.399)1,000,000.00 x(31.002)251,000,000.0
+y(16.203) - x(5.538) TANGGAL :31/11 x(12.044)TOKO SEJAHTERAH
+y(16.828) - x(12.044) TGH:     998500.00
+y(17.453) - x(12.044) DDR:       1500.00
+```
+
+`y(**.***)` : ini maksudnya koordinat `y` / posisi vertikal dari textnya. essentially, ini line numbernya. (makin gede, makin kebawah)
+
+`x(**.***)` : ini maksudnya koordinat `x` / posisi horizontal dari textnya. dari kiri ke kanan. (makin gede angkanya, makin ke kanan textnya)
+
+Koordinat ini hanya berlaku per halaman. jadi begitu pindah ke halaman baru, koordinatnya di reset dari (0,0).
+
+setelah itu silahkan buat sendiri filter nya. happy hunting ✨
+
